@@ -7,6 +7,8 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 import logging
 from datetime import datetime
+from .models import CarMake, CarModel
+from .populate import initiate
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
@@ -144,6 +146,7 @@ def registration(request):
             "error": "Registration failed. Please try again."
         }, status=500)
 
+
 # def get_dealerships(request):
 #     ...
 
@@ -155,3 +158,43 @@ def registration(request):
 
 # def add_review(request):
 #     ...
+
+def get_cars(request):
+    print("=== get_cars called ===")
+
+    make_count = CarMake.objects.count()
+    model_count = CarModel.objects.count()
+    print(f"Before initiate → CarMake: {make_count}, CarModel: {model_count}")
+
+    # Force initiate if no data
+    if make_count == 0 or model_count == 0:
+        print("⚠️  No data found → Running initiate() now...")
+        try:
+            from .populate import initiate
+            initiate()
+            print("✅ initiate() executed successfully!")
+        except Exception as e:
+            print(f"❌ Error in initiate(): {e}")
+            return JsonResponse({"error": str(e)}, status=500)
+    else:
+        print("✅ Data already exists.")
+
+    # Refresh counts
+    make_count = CarMake.objects.count()
+    model_count = CarModel.objects.count()
+    print(f"After initiate → CarMake: {make_count}, CarModel: {model_count}")
+
+    # Fetch data
+    car_models = CarModel.objects.select_related('car_make').all()
+
+    cars = []
+    for car_model in car_models:
+        cars.append({
+            "CarModel": car_model.name,
+            "CarMake": car_model.car_make.name,
+            "Year": car_model.year,
+            "Type": car_model.type,
+        })
+
+    print(f"Returning {len(cars)} cars")
+    return JsonResponse({"CarModels": cars})
