@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Best Cars Dealership</title>
+    <link rel="stylesheet" href="/static/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        .navbar {
+            background-color: #003087 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/id/1015/2000/800') center/cover no-repeat;
+            color: white;
+            padding: 100px 0 70px;
+            text-align: center;
+        }
+
+        .contact-section {
+            padding: 80px 0;
+        }
+
+        .info-card {
+            border: none;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .form-control, .form-select {
+            padding: 12px 16px;
+            border-radius: 8px;
+        }
+
+        .btn-primary {
+            background-color: #003087;
+            border: none;
+            padding: 12px 32px;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background-color: #00205a;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold fs-3" href="/">Best Cars</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/contact">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Get In Touch</h1>
+            <p class="lead fs-4">We're here to help you find your dream car</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="row g-5">
+
+                <!-- Contact Form -->
+                <div class="col-lg-7">
+                    <h2 class="mb-4">Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-control" placeholder="John" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-control" placeholder="Doe" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" class="form-control" placeholder="your@email.com" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" placeholder="(123) 456-7890">
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Interested In</label>
+                            <select class="form-select">
+                                <option value="">Select an option</option>
+                                <option>New Cars</option>
+                                <option>Used Cars</option>
+                                <option>Service & Maintenance</option>
+                                <option>Trade-In</option>
+                                <option>General Inquiry</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="6" placeholder="How can we help you today?"></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-lg-5">
+                    <div class="card info-card h-100 p-4">
+                        <h3 class="mb-4">Visit or Call Us</h3>
+
+                        <div class="mb-4">
+                            <h5><i class="bi bi-geo-alt"></i> Address</h5>
+                            <p class="mb-1">123 Auto Parkway</p>
+                            <p>Northwood, Ontario • L6R 4K2</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h5><i class="bi bi-telephone"></i> Phone</h5>
+                            <p class="mb-1"><strong>(905) 555-0123</strong></p>
+                            <small>Sales: Mon-Sat 9:00 AM - 7:00 PM</small><br>
+                            <small>Service: Mon-Fri 8:00 AM - 6:00 PM</small>
+                        </div>
+
+                        <div class="mb-4">
+                            <h5><i class="bi bi-envelope"></i> Email</h5>
+                            <p><a href="mailto:info@bestcars.com" class="text-decoration-none">info@bestcars.com</a></p>
+                        </div>
+
+                        <div>
+                            <h5>Business Hours</h5>
+                            <table class="table table-borderless small">
+                                <tr><td>Monday - Friday</td><td>9:00 AM - 7:00 PM</td></tr>
+                                <tr><td>Saturday</td><td>9:00 AM - 6:00 PM</td></tr>
+                                <tr><td>Sunday</td><td>11:00 AM - 5:00 PM</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps Placeholder -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h4 class="text-center mb-4">Find Us Here</h4>
+            <div class="ratio ratio-21x9 rounded shadow">
+                <!-- Replace with real Google Maps embed later -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11533.000000000001!2d-79.123456!3d43.765432!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDPCsDQ1JzU1LjYiTiA3OcKwMDcnMjQuNiJX!5e0!3m2!1sen!2sca!4v1234567890"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
